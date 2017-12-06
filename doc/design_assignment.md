@@ -1,11 +1,12 @@
-## Basic Drag and Drop
-
-A port of the Drag and Drop example used in the
-[Native HTML5 Drag and Drop](http://www.html5rocks.com/en/tutorials/dnd/basics/)
-article by Eric Bidelman, originally published on HTML5Rocks.
-
-HTML5 Drag and drop (DnD) is event-based way of making an element draggable
-on a page. Native browser support for this feature means faster, more responsive
-web apps.
-
-Please report any [bugs or feature requests](http://dartbug.com/new).
+    | 程序结构分块               | 负责人    |  
+    | --------                  | :----:   |
+    | 前端html源码               | 于潇雪    |  
+    | 前端css源码                | 苏颖晞    |
+    |接口协议                    | 姜宇轩    |   
+    | 计时器功能后端代码          | 于潇雪    |
+    | 笔记功能后端代码            | 苏颖晞    |
+    | 课程编辑功能后端代码        | 姜宇轩    |
+    | 计时器功能数据库设计与开发   | 于潇雪    | 
+    | 笔记功能数据库设计与开发     | 苏颖晞    |  
+    | 课程编辑功能数据库设计与开发 | 姜宇轩    | 
+    | 服务器环境配置与运维         | 姜宇轩   |
