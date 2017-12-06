@@ -16,27 +16,45 @@
             <th>负责人</th>
         </tr>
         <tr>
-            <th>键盘</th>
-            <th>/dev/stdin</th>
-            <th>0</th>
-            <th>标准输入</th>
+            <th>前端html源码</th>
+            <th>于潇雪</th>
         </tr>
         <tr>
-            <th>显示器</th>
-            <th>/dev/stdout</th>
-            <th>1</th>
-            <th>标准输出</th>
+            <th>前端css源码</th>
+            <th>苏颖晞</th>
         </tr>
         <tr>
-            <th>显示器</th>
-            <th>/dev/stderr</th>
-            <th>2</th>
-            <th>标准错误输出</th>
+            <th>接口协议</th>
+            <th>姜宇轩</th>
         </tr>
+        <tr>
+            <th>计时器功能后端代码</th>
+            <th>于潇雪</th>
+        </tr>
+        <tr>
+            <th>笔记功能后端代码</th>
+            <th>苏颖晞</th>
+        </tr>
+        <tr>
+            <th>课程编辑功能后端代码</th>
+            <th>姜宇轩</th>
+        </tr>
+        <tr>
+            <th>计时器功能数据库设计与开发</th>
+            <th>于潇雪</th>
+        </tr>
+        <tr>
+            <th>笔记功能数据库设计与开发</th>
+            <th>苏颖晞</th>
+        </tr>
+        <tr>
+            <th>课程编辑功能数据库设计与开发</th>
+            <th>姜宇轩</th>
+        </tr>
+        <tr>
+            <th>服务器环境配置与运维</th>
+            <th>姜宇轩</th>
+        </tr>
+
+
     </table>
-
-
-作者：Gaolex
-链接：http://www.jianshu.com/p/abaff828100d
-來源：简书
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
