@@ -1,52 +1,40 @@
 import 'package:redstone/redstone.dart' as app;
 import 'package:shelf/shelf.dart' as shelf;
 import 'package:shelf/shelf_io.dart' as shelf_io;
-import 'package:shelf_cors/shelf_cors.dart' as shelf_cors;
 import 'package:sqljocky5/sqljocky.dart';
 import 'package:sqljocky5/utils.dart';
 import 'dart:async';
 
-@app.Route("/data/")
-helloWorld() {
-  return getDataFromDB();
+@app.Route("/login")               //changed by jyx at 2017.12.26
+login() {
+  var usrinfo = GetUsrinfo();
+  return usrinfo;
 }
 
-@app.Route("/data/add", methods: const [app.POST])
+@app.Route("/data/add", methods: const [app.POST])      //changed by jyx at 2017.12.26
 addUser(@app.Body(app.TEXT) String userData) {
   String data = userData;
   return data;
 }
 
-Future<String> getDataFromDB() async {
-  var pool = new ConnectionPool(
-      host: 'www.muedu.org',
-      port: 3306,
-      user: 'deit-2015',
-      password: 'deit@2015!',
-      db: 'project_2015_example',
-      max: 5);
-  var results = await pool.query('select iduser, firstname,lastname from user');
-  //todo get data from db.
-  String response;
+Future<String> GetUsrinfo() async   //获取用户名密码
+{                                                      //changed by jyx at 2017.12.26
+  var pool = new ConnectionPool(host: 'localhost',port: 3306, user: 'root', password: 'jyx720520', db: 'mysql', max: 5);
+  var results = await pool.query('SELECT UsrName, PasWord,UsrType from UserInfo');
+  var response;
   await results.forEach((row) {
-    response = 'FirstName: ${row[1]}, LastName: ${row[2]}';
+       response[0] = row[0];
+       response[1] = row[1];
+       response[2] = row[2];
+
   });
   return response;
 
-  // return '''["name1","name2","name33","name43"]''';
 }
 
-@app.Route("/register/")
-register() => "you are now a member";
-main() {
-  Map corsHeaders1 = {
-    "Access-Control-Allow-Methods": "POST",
-    "Access-Control-Allow-Origin": "*",
-  };
-  shelf.Middleware middleware =
-      shelf_cors.createCorsHeadersMiddleware(corsHeaders: corsHeaders1);
+main()
+{
   app.setupConsoleLog();
-  app.addShelfMiddleware(middleware);
-  app.start(port: 90);
-  print("fefef");
+  app.start();
 }
+
