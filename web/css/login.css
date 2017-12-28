@@ -13,7 +13,6 @@
     width: 100%;
     height: 100%;
     top:100px;
-    background-color: antiquewhite;
 }
 
 .class1{
@@ -21,7 +20,7 @@
     width: 100%;
     height: 25%;
     top:0;
-    background-color: #ffd4c7;
+    background-color: #ffffe4;
 }
 
 .class2{
@@ -29,7 +28,7 @@
     width: 100%;
     height:25%;
     top:0;
-    background-color: #55c1ae;
+    background-color: #95dcd9;
 }
 
 .class3{
@@ -37,7 +36,7 @@
     width: 100%;
     height:25%;
     top:0;
-    background-color: #ffd4c7;
+    background-color: #96bcc8;
 }
 
 .class4{
@@ -45,7 +44,7 @@
     width: 100%;
     height:25%;
     top:0;
-    background-color: #55c1ae;
+    background-color: #97a6bb;
 }
 
 .left-div{
@@ -70,4 +69,46 @@
     height: 100%;
     top:0;
     left: 20%;
+}
+
+.login-div{
+    position: absolute;
+    left: 25%;
+    width: 50%;
+    height: 40%;
+    top:10%;
+}
+
+.usernameLabel{
+    position: absolute;
+    left:20%;
+    top:15%;
+}
+
+.passwordLabel{
+    position: absolute;
+    left:22%;
+    top:55%;
+}
+
+input:focus{
+    outline: none;
+}
+
+.usernameinput{
+    position: absolute;
+    left: 45%;
+    top:30%;
+    width: 40%;
+    height: 10%;
+    font-size: 30px;
+}
+
+.passwordinput{
+    position: absolute;
+    left: 45%;
+    top:60%;
+    width: 40%;
+    height: 10%;
+    font-size: 30px;
 }

@@ -1,35 +1,42 @@
 import 'package:redstone/redstone.dart' as app;
 import 'package:shelf/shelf.dart' as shelf;
 import 'package:shelf/shelf_io.dart' as shelf_io;
+import 'dart:convert' show JSON;
 import 'package:sqljocky5/sqljocky.dart';
 import 'package:sqljocky5/utils.dart';
 import 'dart:async';
+import 'package:shelf_cors/shelf_cors.dart';
 
-@app.Route("/login")               //changed by jyx at 2017.12.26
-login() {
-  var usrinfo = GetUsrinfo();
-  return usrinfo;
+var ReturnString;
+
+@app.Route("/login", methods: const [app.POST])               //changed by jyx at 2017.12.27
+login(@app.Body(app.TEXT) String userData) {
+  Map data = JSON.decode(userData);
+  var returnData = GetUsrinfo(data['Usrname'],data['Password']);
+  return returnData;
 }
 
-@app.Route("/data/add", methods: const [app.POST])      //changed by jyx at 2017.12.26
-addUser(@app.Body(app.TEXT) String userData) {
-  String data = userData;
-  return data;
-}
-
-Future<String> GetUsrinfo() async   //获取用户名密码
-{                                                      //changed by jyx at 2017.12.26
-  var pool = new ConnectionPool(host: 'localhost',port: 3306, user: 'root', password: 'jyx720520', db: 'mysql', max: 5);
+Future<String> GetUsrinfo(String requestUsrname, String requestPassword) async   //获取用户名密码
+{                                                      //changed by jyx at 2017.12.27
+  var pool = new ConnectionPool(host: 'www.muedu.org',port: 3306, user: 'deit-2015', password: 'deit@2015!', db: 'project_2015_4', max: 5);
   var results = await pool.query('SELECT UsrName, PasWord,UsrType from UserInfo');
-  var response;
+  var errorCode;
+  var errorMsg;
+  var UsrType;
   await results.forEach((row) {
-       response[0] = row[0];
-       response[1] = row[1];
-       response[2] = row[2];
-
+       if(requestUsrname == row[0] && requestPassword == row[1]){
+         errorCode = "0";
+         errorMsg = "";
+         UsrType = row[2];
+       }
+       else{
+         errorCode = "1";
+         errorMsg = "Wrong username or password!";
+         UsrType = "";
+       }
+       ReturnString = '{"errorCode":' + errorCode + ', "errorMsg":' + errorMsg + ', "UsrType":' + UsrType + '}';
   });
-  return response;
-
+  return ReturnString;
 }
 
 main()

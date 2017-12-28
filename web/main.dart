@@ -25,7 +25,7 @@ void handleError(Object error) {
 
 Future makeRequest(Event e) async {               //changed by jyx at 2017.12.26
 
-  var path = '0.0.0.0:8080/login';
+  var path = '/login';
   try {
     processString(await HttpRequest.getString(path));
   } catch (e) {
