@@ -88,7 +88,7 @@
 .passwordLabel{
     position: absolute;
     left:22%;
-    top:55%;
+    top:45%;
 }
 
 input:focus{
@@ -111,4 +111,12 @@ input:focus{
     width: 40%;
     height: 10%;
     font-size: 30px;
+}
+
+#loginbtn{
+    position: absolute;
+    left: 40%;
+    top:70%;
+    width: 20%;
+    height: 10%;
 }
