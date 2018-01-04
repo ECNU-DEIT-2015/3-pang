@@ -13,7 +13,6 @@
     width: 100%;
     height: 100%;
     top:100px;
-    background-color: antiquewhite;
 }
 
 .class1{
@@ -21,7 +20,7 @@
     width: 100%;
     height: 25%;
     top:0;
-    background-color: #ffd4c7;
+    background-color: #ffe5a7;
     text-align: center;
 }
 
@@ -30,7 +29,7 @@
     width: 100%;
     height:25%;
     top:0;
-    background-color: #55c1ae;
+    background-color: #009c95;
 }
 
 .class3{
@@ -38,7 +37,7 @@
     width: 100%;
     height:25%;
     top:0;
-    background-color: #ffd4c7;
+    background-color: #026378;
 }
 
 .class4{
@@ -73,18 +72,7 @@
     left: 20%;
 }
 
-.classNameLabel{
-    position: absolute;
-    top:40%;
-    left: 10%;
-    width: 80%;
-    font-size: 20px;
-    visibility: hidden;
-    font-family: STXinwei;
-
-}
-
-#addCourseBtn{
+#addRecordBtn{
     position: absolute;
     top:60px;
     left: 70%;
@@ -111,18 +99,75 @@
     visibility: hidden;
 }
 
-.weekTable{
+.class-select-BeginHourLabel select{
     position: absolute;
-    top:20%;
-    left: 10%;
-    width: 70%;
-    height: 60%;
-    font-family: STXinwei;
-    font-size: 20px;
-    visibility: visible;
+    top:15%;
+    left:15%;
+    width: 30%;
+    height: 20%;
+    visibility: hidden;
 }
 
-.weekTable td{
-    border: solid 2px #f29a76;
-    color: #7e4a33;
+.class-select-EndHourLabel select{
+    position: absolute;
+    top:40%;
+    left:15%;
+    width: 30%;
+    height: 20%;
+    visibility: hidden;
 }
+
+.left-div-p1{
+    position: absolute;
+    top:12%;
+    left:40%;
+    width: 30%;
+    height: 20%;
+    visibility: hidden;
+}
+
+.class-select-BeginMinLabel select{
+    position: absolute;
+    top:15%;
+    left:70%;
+    width: 30%;
+    height: 20%;
+    visibility: hidden;
+}
+
+.class-select-EndMinLabel select{
+    position: absolute;
+    top:40%;
+    left:70%;
+    width: 30%;
+    height: 20%;
+    visibility: hidden;
+}
+
+.Manage-Content{
+    position: absolute;
+    top:25%;
+    left:15%;
+    width: 70%;
+    height: 50%;
+    visibility: hidden;
+}
+
+.ContentConfirmBtn{
+    position: absolute;
+    top:85%;
+    left: 30%;
+    width: 10%;
+    height:10%;
+    visibility: hidden;
+}
+
+.ContentCancelBtn{
+    position: absolute;
+    top:85%;
+    left: 60%;
+    width: 10%;
+    height: 10%;
+    visibility: hidden;
+}
+

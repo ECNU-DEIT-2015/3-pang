@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" type="text/css" href="css/indexT.css" />
+    <link rel="stylesheet" type="text/css" href="css/ClassPageT.css" />
     <script type="application/dart" src="../bin/main.dart"></script>
-    <script type="application/dart" src="dart/indexT.dart"></script>
+    <script type="application/dart" src="dart/ClassPageT.dart"></script>
 </head>
 <body>
 <div class="title">
@@ -19,7 +19,29 @@
     <!---changed by yxx at 2017.12.28--->
     <div class="class1">
         <div class="left-div">
-            <textarea id="class1Name" class="classNameLabel" style="text-align:center; resize: none;" ></textarea>
+
+            <label class="class-select-BeginHourLabel">
+                <select id="class1-selectBeginHourLabel" style="background:transparent; border:none">
+                </select>
+            </label>
+
+            <p class="left-div-p1">:</p>
+
+            <label class="class-select-BeginMinLabel">
+                <select id="class1-selectBeginMinLabel" style="background:transparent; border:none;">
+                </select>
+            </label>
+
+            <label class="class-select-EndHourLabel">
+                <select id="class1-selectEndHourLabel" style="background:transparent; border:none">
+                </select>
+            </label>
+
+            <label class="class-select-EndMinLabel">
+                <select id="class1-selectEndMinLabel" style="background:transparent; border:none;">
+                </select>
+            </label>
+
             <button id="class1Confirm" class="classConfirmBtn">确认</button>
             <button id="class1Cancel" class="classCancelBtn">取消</button>
         </div>
@@ -29,33 +51,9 @@
         </div>
 
         <div class="right-div">
-
-            <table id="class1weekTable" class="weekTable">
-                <tr>
-                    <td id="class1week1">第1周</td>
-                    <td id="class1week2">第2周</td>
-                    <td id="class1week3">第3周</td>
-                    <td id="class1week4">第4周</td>
-                    <td id="class1week5">第5周</td>
-                    <td id="class1week6">第6周</td>
-                </tr>
-                <tr>
-                    <td id="class1week7">第7周</td>
-                    <td id="class1week8">第8周</td>
-                    <td id="class1week9">第9周</td>
-                    <td id="class1week10">第10周</td>
-                    <td id="class1week11">第11周</td>
-                    <td id="class1week12">第12周</td>
-                </tr>
-                <tr>
-                    <td id="class1week13">第13周</td>
-                    <td id="class1week14">第14周</td>
-                    <td id="class1week15">第15周</td>
-                    <td id="class1week16">第16周</td>
-                    <td id="class1week17">第17周</td>
-                    <td id="class1week18">第18周</td>
-                </tr>
-            </table>
+            <textarea class="Manage-Content" id="Class1ManageContent" style="text-align:center; resize: none;"></textarea>
+            <button id="class1ContentConfirm" class="ContentConfirmBtn">确认</button>
+            <button id="class1ContentCancel" class="ContentCancelBtn">取消</button>
         </div>
     </div>
     <div class="class2">
@@ -99,7 +97,7 @@
 </div>
 
 <div>
-    <button id="addCourseBtn">添加课程</button>
+    <button id="addRecordBtn">添加记录</button>
 </div>
 </body>
 </html>

@@ -34,6 +34,52 @@ Future<String> GetUsrinfo(String requestUsrname, String requestPassword) async  
   return ReturnString;
 }
 
+
+@app.Route("/addClass",methods: const [app.POST])
+addClass(@app.Body(app.TEXT) String ClassData){
+  Map classdata = JSON.decode(ClassData);
+  var returnData = addClassData(classdata["Classname"], classdata["Teacherid"]);
+  return returnData;
+}
+
+Future<String> addClassData(String Classname, String Teacherid) async{
+  var pool = new ConnectionPool(host: 'www.muedu.org',port: 3306, user: 'deit-2015', password: 'deit@2015!', db: 'project_2015_4', max: 5);
+  int maxnum = 0;
+  String classid;
+  var result = await pool.query('SELECT * FROM Classes WHERE Teacherid=' + Teacherid);
+  await result.forEach((row){
+    if(row.length != 0 ){
+      maxnum = int.parse(row[0]);
+    }
+    else{
+      maxnum = int.parse(Teacherid + '0');
+    }
+    classid = (maxnum + 1).toString();
+  });
+  await pool.query('INSERT INTO Classes (ClassId, Classname, Teacherid) VALUES ("' + classid + '", "' + Classname + '","' + Teacherid + '")');
+  ReturnString = '{"errorCode":0,"errorMsg":""}';
+  return ReturnString;
+}
+
+@app.Route("/addRecord/addTime",methods: const [app.POST])
+addTime(@app.Body(app.TEXT) String TimeData){
+  Map addtimedata = JSON.decode(TimeData);
+  var returnData = addTimeData(addtimedata["ClassId"],addtimedata["ManageNum"],addtimedata["BT"],addtimedata["ET"]);
+  return returnData;
+}
+
+Future<String> addTimeData(String ClassId, String ManageNum, String BT, String ET) async{
+  var pool = new ConnectionPool(host: 'www.muedu.org',port: 3306, user: 'deit-2015', password: 'deit@2015!', db: 'project_2015_4', max: 5);
+  int maxnum = 0;
+  String classid;
+  var result = await pool.query('update Classes set Manage' + ManageNum + 'BT = "' + BT + '",ET="' + ET + '" where ClassId = "' + ClassId + '"');
+  await result.forEach((row){
+
+  });
+  ReturnString = '{"errorCode":0,"errorMsg":""}';
+  return ReturnString;
+}
+
 main()
 {
   Map corsHeaders1 = {

@@ -27,7 +27,7 @@ Future makePostRequest(Event e) async {     //changed by jyx at 2017.12.26
   if(response.statusCode == 200){
 
     Map responseData = JSON.decode(response.body);
-
+    window.alert("200!");
     if(responseData["errorCode"] == "0"){
       GotoindexPage();
     }

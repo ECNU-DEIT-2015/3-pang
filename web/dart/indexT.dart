@@ -12,7 +12,9 @@ import 'dart:html';
 
 main() async
 {
-  querySelector('#addCourseBtn').onClick.listen(makePostRequest);
+  querySelector('#addCourseBtn').onClick.listen(AddCourse);
+  querySelector('#class1Confirm').onClick.listen(ConfirmClick);
+  querySelector('#class1Cancel').onClick.listen(CancelClick);
 }
 
 Future<String> GetUsrinfo(String requestUsrname) async
@@ -41,6 +43,26 @@ Future<String> GetUsrinfo(String requestUsrname) async
   return ReturnString;
 }
 
-AddCourse(){
-  querySelector('#class1Name').innerHtml = '';
+AddCourse(Event e){
+  querySelector('#class1Confirm').style.visibility = "visible";
+  querySelector('#class1Cancel').style.visibility = "visible";
+  querySelector('#class1Name').style.visibility = "visible";
+  querySelector('#class1weekTable').style.visibility = "visible";
+}
+
+ConfirmClick(Event e){
+  querySelector('#class1Confirm').style.visibility = "hidden";
+  querySelector('#class1Cancel').style.visibility = "hidden";
+  querySelector('#class1Name').style.background = "transparent";
+  querySelector('#class1Name').style.border = "none";
+  querySelector('#class1Name').setAttribute("disabled", "disabled");
+
+
+}
+
+CancelClick(Event e){
+  querySelector('#class1Confirm').style.visibility = "hidden";
+  querySelector('#class1Cancel').style.visibility = "hidden";
+  querySelector('#class1Name').style.visibility = "hidden";
+  querySelector('#class1weekTable').style.visibility = "hidden";
 }
