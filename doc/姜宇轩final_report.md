@@ -491,6 +491,7 @@ Future<String> addClassData(String Classname, String Teacherid) async{
 
 ## 我的issue活动
 >在这里列出所有你参与的issue活动，包括你发起的问题，你回答的问题，你可以使用贴图展示。
+
 >回答了Yuxiaoxue2015提出的问题：教师界面点击添加按钮后，弹出框显示所要添加的课程信息，回答结果：和在页面上做异步交互是异曲同工的，可参考https://www.cnblogs.com/wildfox/p/5852998.html
 
 
