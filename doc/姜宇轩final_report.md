@@ -488,7 +488,7 @@ Future<String> addClassData(String Classname, String Teacherid) async{
 
 >查询后作类似如下描述，即你做了多少次commit，修改增加了多少，修改删除了多少，做了多少次issues    
 
->  **姜宇轩/10154507134/5 commits / 250 ++ / 0 --/1 issues/**  
+>  **姜宇轩/10154507134/9 commits / 1921 ++ / 49 --/1 issues/**  
 
 ## 我的issue活动
 >在这里列出所有你参与的issue活动，包括你发起的问题，你回答的问题，你可以使用贴图展示。
