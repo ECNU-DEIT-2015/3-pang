@@ -10,6 +10,10 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:html';
 
+InputElement username;
+InputElement password;
+String usernameValue;
+String passwordValue;
 
 main() async
 {
@@ -20,18 +24,19 @@ Future makePostRequest(Event e) async {     //changed by jyx at 2017.12.26
 
   var client = new BrowserClient();
   var url = 'http://0.0.0.0:8080/login';
-
+  username = querySelector('#username');
+  password = querySelector('#password');
+  usernameValue = username.value;
+  passwordValue = password.value;
+  document.cookie = usernameValue;
   var response =
-       await client.post(url,body: '{"Usrname":"10154507134","Password":"1234567"}');
+       await client.post(url,body: '{"Usrname":"' + usernameValue + '","Password":"' + passwordValue + '"}');
 
   if(response.statusCode == 200){
-
     Map responseData = JSON.decode(response.body);
-    window.alert("200!");
     if(responseData["errorCode"] == "0"){
       GotoindexPage();
     }
-
     else{
       window.alert("用户名或密码错误！");
     }
@@ -43,6 +48,7 @@ Future makePostRequest(Event e) async {     //changed by jyx at 2017.12.26
 }
 
 GotoindexPage(){
+  window.open("indexT.html","");
 
 }
 

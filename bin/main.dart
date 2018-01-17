@@ -30,7 +30,7 @@ Future<String> GetUsrinfo(String requestUsrname, String requestPassword) async  
          UsrType = row[2];
        }
 });
-  ReturnString = '{"errorCode":' + errorCode + ', "errorMsg":' + errorMsg + ', "UsrType":' + UsrType + '}';
+  ReturnString = '{"errorCode":"' + errorCode + '", "errorMsg":"' + errorMsg + '", "UsrType":"' + UsrType + '"}';
   return ReturnString;
 }
 
@@ -49,34 +49,57 @@ Future<String> addClassData(String Classname, String Teacherid) async{
   var result = await pool.query('SELECT * FROM Classes WHERE Teacherid=' + Teacherid);
   await result.forEach((row){
     if(row.length != 0 ){
-      maxnum = int.parse(row[0]);
+      if(int.parse(row[0]) > maxnum){
+        maxnum = int.parse(row[0]);
+      }
     }
-    else{
-      maxnum = int.parse(Teacherid + '0');
-    }
-    classid = (maxnum + 1).toString();
   });
-  await pool.query('INSERT INTO Classes (ClassId, Classname, Teacherid) VALUES ("' + classid + '", "' + Classname + '","' + Teacherid + '")');
-  ReturnString = '{"errorCode":0,"errorMsg":""}';
+  for(int weeknumber = 1; weeknumber < 19; weeknumber++){
+     maxnum++;
+     classid = maxnum.toString();
+     await pool.query('INSERT INTO Classes (ClassId, Classname, Teacherid, weeknum) VALUES ("' + classid + '", "' + Classname + '","' + Teacherid + '","' + weeknumber.toString() + '")');
+  }
+  ReturnString = '{"errorCode":"0","errorMsg":""}';
   return ReturnString;
 }
 
 @app.Route("/addRecord/addTime",methods: const [app.POST])
 addTime(@app.Body(app.TEXT) String TimeData){
   Map addtimedata = JSON.decode(TimeData);
-  var returnData = addTimeData(addtimedata["ClassId"],addtimedata["ManageNum"],addtimedata["BT"],addtimedata["ET"]);
+  var returnData = addTimeData(addtimedata["ClassName"],addtimedata["weekNum"],addtimedata["ManageNum"],addtimedata["BT"],addtimedata["ET"]);
   return returnData;
 }
 
-Future<String> addTimeData(String ClassId, String ManageNum, String BT, String ET) async{
+Future<String> addTimeData(String ClassName, String weekNum, String ManageNum, String BT, String ET) async{
   var pool = new ConnectionPool(host: 'www.muedu.org',port: 3306, user: 'deit-2015', password: 'deit@2015!', db: 'project_2015_4', max: 5);
   int maxnum = 0;
   String classid;
-  var result = await pool.query('update Classes set Manage' + ManageNum + 'BT = "' + BT + '",ET="' + ET + '" where ClassId = "' + ClassId + '"');
+  var result = await pool.query('update Classes set Manage' + ManageNum + 'BT = "' + BT + '",ET="' + ET + '" where Classname = "' + ClassName + '" AND weeknum="' + weekNum + '"');
   await result.forEach((row){
 
   });
   ReturnString = '{"errorCode":0,"errorMsg":""}';
+  return ReturnString;
+}
+
+@app.Route("/select/selectClass",methods: const [app.POST])
+load(@app.Body(app.TEXT) String loadData){
+  Map addtimedata = JSON.decode(loadData);
+  var returnData = loadPage(addtimedata["TeacherID"]);
+  return returnData;
+}
+
+Future loadPage(String TeacherID) async{
+  var pool = new ConnectionPool(host: 'www.muedu.org',port: 3306, user: 'deit-2015', password: 'deit@2015!', db: 'project_2015_4', max: 5);
+  int i = 1;
+  int j = 0;
+  List Classname = [];
+  var result = await pool.query('SELECT * FROM Classes WHERE Teacherid=' + TeacherID + ' AND weeknum=1');
+  await result.forEach((row){
+    Classname.add(row[1]);
+  });
+  ReturnString = '{"errorCode":"0","errorMsg":"","ClassNumber":"' + Classname.length.toString() + '","Classname":"' + Classname.toString() + '"}';
+
   return ReturnString;
 }
 

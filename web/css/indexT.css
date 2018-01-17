@@ -31,6 +31,7 @@
     height:25%;
     top:0;
     background-color: #55c1ae;
+    text-align: center;
 }
 
 .class3{
@@ -39,6 +40,7 @@
     height:25%;
     top:0;
     background-color: #ffd4c7;
+    text-align: center;
 }
 
 .class4{
@@ -47,6 +49,7 @@
     height:25%;
     top:0;
     background-color: #55c1ae;
+    text-align: center;
 }
 
 .left-div{
@@ -119,10 +122,11 @@
     height: 60%;
     font-family: STXinwei;
     font-size: 20px;
-    visibility: visible;
+    visibility: hidden;
 }
 
 .weekTable td{
     border: solid 2px #f29a76;
     color: #7e4a33;
+    cursor: pointer;
 }

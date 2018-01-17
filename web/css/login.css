@@ -98,7 +98,7 @@ input:focus{
 .usernameinput{
     position: absolute;
     left: 45%;
-    top:30%;
+    top:25%;
     width: 40%;
     height: 10%;
     font-size: 30px;
@@ -107,7 +107,7 @@ input:focus{
 .passwordinput{
     position: absolute;
     left: 45%;
-    top:60%;
+    top:50%;
     width: 40%;
     height: 10%;
     font-size: 30px;

@@ -46,15 +46,44 @@ addRecord(Event e){
   querySelector('#Class1ManageContent').style.visibility = "visible";
   querySelector('#class1ContentConfirm').style.visibility = "visible";
   querySelector('#class1ContentCancel').style.visibility = "visible";
+
 }
 
-ConfirmClick(Event e) {
+ConfirmClick(Event e) async{
   querySelector('#class1Confirm').style.visibility = "hidden";
   querySelector('#class1Cancel').style.visibility = "hidden";
   querySelector('#class1-selectBeginHourLabel').setAttribute("disabled", "disabled");
   querySelector('#class1-selectBeginMinLabel').setAttribute("disabled", "disabled");
   querySelector('#class1-selectEndHourLabel').setAttribute("disabled", "disabled");
   querySelector('#class1-selectEndMinLabel').setAttribute("disabled", "disabled");
+  var client = new BrowserClient();
+
+  /*var url = 'http://0.0.0.0:8080/addRecord/addTime';
+  TextAreaElement classname = querySelector('#class' + CourseNum.toString() + 'Name');
+  String classnameValue = classname.value;
+  var response =
+      await client.post(url,body: '{"ClassName":"' + document.cookie.split(';')[1] + '","weekNum":"' + document.cookie.split(';')[1] + '","ManageNum":' + ManageNum + '","BT":' + BT + '","ET":' + ET + '}');
+
+  if(response.statusCode == 200){
+    Map responseData = JSON.decode(response.body);
+    if(responseData["errorCode"] == "0"){
+
+      querySelector('#class' + CourseNum.toString() + 'Confirm').style.visibility = "hidden";
+      querySelector('#class' + CourseNum.toString() + 'Cancel').style.visibility = "hidden";
+      querySelector('#class' + CourseNum.toString() + 'Name').style.background = "transparent";
+      querySelector('#class' + CourseNum.toString() + 'Name').style.border = "none";
+      querySelector('#class' + CourseNum.toString() + 'Name').setAttribute("disabled", "disabled");
+      CourseNum = 1;
+
+    }
+    else{
+      window.alert("添加失败！");
+    }
+  }
+
+  else{
+    window.alert("无法连接服务器！");
+  }*/
 
 }
 
